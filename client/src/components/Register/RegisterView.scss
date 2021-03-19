@@ -1,0 +1,20 @@
+.register-section {
+	display: flex;
+	height: 60vh;
+
+	.register-container {
+		display: flex;
+		border: 2px solid rgb(107, 191, 216);
+		border-radius: 2px;
+		background-color: white;
+		max-width: 400px;
+		width: 100%;
+		height: 80%;
+		margin: auto;
+
+		.register-form {
+			margin: auto;
+			width: 60%;
+		}
+	}
+}
