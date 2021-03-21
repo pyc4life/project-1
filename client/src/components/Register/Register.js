@@ -5,12 +5,12 @@ import RegisterView from './RegisterView';
 
 const Register = () => {
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [repassword, setRepassword] = useState('');
+    const [authInfo, setAuthInfo] = useState({});
     const [doPasswordsMatch, setDoPasswordsMatch] = useState(true);
 
     const submitFormHandler = (e) => {
+
+        const { username, password } = authInfo;
 
         fetch('http://localhost:3030/users', {
             method: 'POST',
@@ -27,37 +27,17 @@ const Register = () => {
             });
     };
 
-    const usernameChangeHandler = (e) => {
+    const onChangeHandler = (e) => {
+        const { name, value } = e.target;
 
-        const { value } = e.target;
-
-        setUsername(value);
-    };
-
-    const passwordChangeHandler = (e) => {
-        const { value } = e.target;
-
-        setPassword(value);
-    };
-
-    const rePasswordChangeHandler = (e) => {
-        const { value } = e.target;
-
-        setRepassword(value);
-    };
-
-    const usernameOnBlurHandler = (e) => {
-        const { value } = e.target;
+        setAuthInfo({ ...authInfo, [name]: value });
     }
 
     return (
         <MainLayout>
             <RegisterView
-                usernameOnBlurHandler={usernameOnBlurHandler}
                 submitFormHandler={submitFormHandler}
-                usernameChangeHandler={usernameChangeHandler}
-                passwordChangeHandler={passwordChangeHandler}
-                rePasswordChangeHandler={rePasswordChangeHandler}
+                onChangeHandler={onChangeHandler}
             />
         </MainLayout>
     );
