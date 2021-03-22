@@ -14,15 +14,23 @@ router.get('/:username', (req, res) => {
     const { username } = req.params;
 
     services.user.getUser(username)
-    .then(user => res.json({ user }))
-    .catch(error => res.json(error));
+        .then(user => res.json({ user }))
+        .catch(error => res.json(error));
 });
 
-router.post('/', (req, res) => {
-
+router.post('/register', (req, res, next) => {
     services.user.createUser(req.body)
         .then(user => res.json({ user }))
-        .catch(e => console.log(e));
+        .catch(next);
+});
+
+router.post('/login', (req, res, next) => {
+
+    console.log(req.body);
+
+    services.user.login(req.body)
+        .then(user => res.json({ user }))
+        .catch(next);
 });
 
 router.put('/', (req, res) => {
