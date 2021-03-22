@@ -17,7 +17,7 @@ const userSchema = new Schema({
     }
 });
 
-userSchema.method('comparePasswords', (password) => {
+userSchema.method('comparePasswords', function (password) {
     return bcrypt.compare(password, this.password);
 });
 
@@ -44,7 +44,7 @@ userSchema.pre('save', function (next) {
             next();
         });
     });
-})
+});
 
 const User = new model('User', userSchema);
 
