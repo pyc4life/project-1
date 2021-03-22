@@ -8,11 +8,11 @@ const Register = () => {
     const [authInfo, setAuthInfo] = useState({});
     const [doPasswordsMatch, setDoPasswordsMatch] = useState(true);
 
-    const submitFormHandler = (e) => {
+    const onSubmitHandler = (e) => {
 
         const { username, password } = authInfo;
 
-        fetch('http://localhost:3030/users', {
+        fetch('http://localhost:3030/users/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ const Register = () => {
     return (
         <MainLayout>
             <RegisterView
-                submitFormHandler={submitFormHandler}
+                onSubmitHandler={onSubmitHandler}
                 onChangeHandler={onChangeHandler}
             />
         </MainLayout>

@@ -7,7 +7,7 @@ import './RegisterView.scss'
 
 const RegisterView = ({
     onChangeHandler,
-    submitFormHandler,
+    onSubmitHandler,
 }) => (
     <section className="register-section" >
         <div className="register-container">
@@ -38,7 +38,7 @@ const RegisterView = ({
 
                 <MainButton
                     text='Register'
-                    onClickHandler={submitFormHandler}
+                    onClickHandler={onSubmitHandler}
                 />
             </form>
         </div>
