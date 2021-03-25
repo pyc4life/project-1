@@ -2,6 +2,8 @@ import express from 'express';
 import { message } from 'statuses';
 import services from '../services';
 
+import config from '../config';
+
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -20,16 +22,24 @@ router.get('/:username', (req, res) => {
 
 router.post('/register', (req, res, next) => {
     services.user.createUser(req.body)
-        .then(user => res.json({ user }))
+        .then(() => {
+            res.json({
+                ok: true,
+            });
+        })
         .catch(next);
 });
 
 router.post('/login', (req, res, next) => {
 
-    console.log(req.body);
-
     services.user.login(req.body)
-        .then(user => res.json({ user }))
+        .then(token => {
+            res
+                .cookie(config.cookie, token, { maxAge: 9000, httpOnly: true })
+                .json({
+                    ok: true
+                });
+        })
         .catch(next);
 });
 
