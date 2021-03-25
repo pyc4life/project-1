@@ -2,7 +2,6 @@
 	.form-control-label {
 		display: inline-block;
 		padding: 10px 0;
-		margin-top: 30px;
 		color: rgb(107, 191, 216);
 
 		&:hover {
@@ -18,12 +17,13 @@
 		border-bottom: 2px solid rgb(107, 191, 216);
 
 		&:focus {
-			border-bottom: 2px solid transparent;
-			outline: 2px solid rgb(107, 191, 216);
+			outline: 2px solid transparent;
+			border-left: 2px solid rgb(107, 191, 216);
 		}
 	}
 
-    .form-control-warning {
-        color: rgb(172, 8, 8);
-    }
+	.form-control-warning {
+		color: rgb(172, 8, 8);
+		min-height: 42px;
+	}
 }
