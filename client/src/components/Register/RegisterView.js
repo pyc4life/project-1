@@ -6,8 +6,12 @@ import MainButton from '../shared/Button/MainButton';
 import './RegisterView.scss'
 
 const RegisterView = ({
-    onChangeHandler,
+    onChangeHandlerUsername,
+    onChangeHandlerPassword,
+    onChangeHandlerRePassword,
     onSubmitHandler,
+    passwordErrorMessage,
+    usernameErrorMessage,
 }) => (
     <section className="register-section" >
         <div className="register-container">
@@ -19,21 +23,24 @@ const RegisterView = ({
                     type='text'
                     placeholder='Eg. Jordjie39'
                     label='Username'
-                    onChangeHandler={onChangeHandler}
+                    onChangeHandler={onChangeHandlerUsername}
+                    errorMessage={usernameErrorMessage}
                 />
 
                 <FormControl
                     name='password'
                     type='password'
                     label='Password'
-                    onChangeHandler={onChangeHandler}
+                    onChangeHandler={onChangeHandlerPassword}
+                    errorMessage={passwordErrorMessage}
                 />
 
                 <FormControl
-                    name='repassword'
+                    name='rePassword'
                     type='password'
                     label='Repeat password'
-                    onChangeHandler={onChangeHandler}
+                    onChangeHandler={onChangeHandlerRePassword}
+                    errorMessage={passwordErrorMessage}
                 />
 
                 <MainButton
