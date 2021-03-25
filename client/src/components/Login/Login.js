@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import MainLayout from '../Layouts/MainLayout';
 import LoginView from './LoginView';
 
-const Login = () => {
+const Login = ({
+    history,
+}) => {
 
     const [authInfo, setAuthInfo] = useState({});
 
@@ -18,13 +20,14 @@ const Login = () => {
         fetch('http://localhost:3030/users/login', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
+            credentials: 'include',
             body: JSON.stringify(authInfo),
         })
             .then((r) => r.json())
             .then((res) => {
-                console.log(res);
+               history.push('/')
             }).catch(e => {
                 console.log(e);
             });
