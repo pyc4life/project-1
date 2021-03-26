@@ -11,3 +11,13 @@ export const globalErrorHandler = (err, req, res, next) => {
         .status(error.statusCode)
         .json(error);
 };
+
+export const isAuthenticated = (req, res, next) => {
+    if (!req.user) {
+        return res.json({
+            message: 'Нужна е верификация'
+        });
+    }
+
+    next();
+};
