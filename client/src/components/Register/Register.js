@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import MainLayout from '../Layouts/MainLayout';
 import RegisterView from './RegisterView';
 
+import authService from '../../services/authService';
+
 const Register = ({
     history,
 }) => {
@@ -22,20 +24,13 @@ const Register = ({
             return;
         }
 
-        fetch('http://localhost:3030/users/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username, password }),
-        })
-            .then((r) => r.json())
+        authService.register({ username, password })
             .then((res) => {
                 if (res.message === 'Username is already taken.') {
                     setUsernameErrorMessage('Username is already taken');
                     return;
                 }
-                history.push('/login')
+                history.push('/login');
             }).catch(error => console.log(error));
     };
 
