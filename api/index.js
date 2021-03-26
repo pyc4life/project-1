@@ -3,6 +3,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
 import routes from './routes.js';
+import auth  from './utils/auth';
 import { globalErrorHandler } from './middlewares';
 
 import { dbConnect } from './database';
@@ -18,8 +19,9 @@ dbConnect().then(()=> {
     app.use(express.urlencoded({ extend: false }));
     app.use(cookieParser());
     app.use(express.json());
-    app.use(routes);
 
+    app.use(auth);
+    app.use(routes);
     app.use(globalErrorHandler);
     
     app.listen(port, console.log(`Listening on port ${port}..`));
