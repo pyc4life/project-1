@@ -2,11 +2,21 @@ import jwt from 'jsonwebtoken';
 
 import config from '../config';
 
-const createToken = (_id) => (
-    jwt.sign({ _id }, config.secret, { expiresIn: '15m' })
-);
+const createToken = (_id) => {
+    return jwt.sign({ _id }, config.secret, { expiresIn: '1h' });
+};
 
-const verifyToken = (token) => { }
+const verifyToken = (token) => {
+    return new Promise((resolve, reject) => {
+        jwt.verify(token, config.secret, (err, payload) => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve(payload);
+        });
+    })
+};
 
 export default {
     createToken,
