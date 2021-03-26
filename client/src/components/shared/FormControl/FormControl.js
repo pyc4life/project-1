@@ -13,7 +13,7 @@ const FormControl = ({
 }) => (
     <div className="form-control">
         <label
-            for={name}
+            htmlFor={name}
             className="form-control-label"
         >
             {label}

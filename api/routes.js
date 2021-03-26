@@ -7,10 +7,10 @@ router.get('/', (req, res) => {
     res.json({ ok: true });
 });
 
-router.use('/users', controllers.user);
+router.use('/auth', controllers.user);
 
 router.use('*', (req, res) => {
-    res.json({ invalid: true });
+    res.json({ invalid: true, message: 'invalid path' });
 });
 
 export default router;
