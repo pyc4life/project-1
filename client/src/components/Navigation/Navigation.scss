@@ -1,0 +1,31 @@
+@import './../../variables.scss';
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+    padding: 30px 20px;
+
+	.nav-ul {
+		.nav-list-item {
+			display: inline-block;
+			list-style: none;
+            
+			.nav-link {
+                padding: 10px;
+                display: block;
+				text-decoration: none;
+                color: $secondary-color;
+			}
+		}
+	}
+
+    .nav-right {
+        border-radius: 5px;
+
+        .nav-list-item {
+            + .nav-list-item {
+                margin-left: 10px;
+            }
+        }
+    }
+}
