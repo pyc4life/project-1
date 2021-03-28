@@ -1,2 +1,10 @@
 .site-wrapper {
+	max-width: 80rem;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+
+	.site-content {
+		min-height: calc(100vh - (2 * 107px));
+	}
 }

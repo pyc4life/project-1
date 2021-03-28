@@ -10,7 +10,9 @@ const MainLayout = ({
 }) => (
     <div className='site-wrapper'>
         <Navigation />
-        {children}
+        <section className='site-content'>
+            {children}
+        </section>
         <Footer />
     </div>
 );
