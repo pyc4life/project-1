@@ -1,9 +1,37 @@
+html {
+    box-sizing: inherit;
+    font: 14px/1.5 Verdana, sans-serif;
+}
+
 *, *::after, *::before {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-html, body {
-    box-sizing: inherit;
+@media ( min-width: 600px ) {
+    html { font-size: 16px; }
+}
+
+@media ( min-width: 1024px ) {
+    html { font-size: 18px; }
+}
+
+@media ( min-width: 1600px ) {
+    html { font-size: 20px; }
+}
+
+body, table, form, select, input, textarea, option, article, button {
+    font: inherit;
+}
+
+h1 { font-size: 2.6em; }
+h2 { font-size: 2.0em; }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1.4em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1.0em; }
+
+a {
+    text-decoration: none;
 }
