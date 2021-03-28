@@ -2,11 +2,15 @@
 
 .footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 30px 20px;
 
     p {
         color: $gray-color;
         padding: 10px;
+
+        & + p {
+            border-left: 1px solid $gray-color;
+        }
     }
 }

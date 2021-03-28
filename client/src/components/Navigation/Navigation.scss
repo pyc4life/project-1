@@ -3,29 +3,35 @@
 .nav {
 	display: flex;
 	justify-content: space-between;
-    padding: 30px 20px;
+	padding: 30px 20px;
 
 	.nav-ul {
 		.nav-list-item {
 			display: inline-block;
 			list-style: none;
-            
+
 			.nav-link {
-                padding: 10px;
-                display: block;
+				padding: 10px;
+				display: block;
 				text-decoration: none;
-                color: $secondary-color;
+				color: $secondary-color;
 			}
 		}
 	}
 
-    .nav-right {
-        border-radius: 5px;
+	.nav-right {
+		border-radius: 5px;
 
-        .nav-list-item {
-            + .nav-list-item {
-                margin-left: 10px;
+		.nav-list-item {
+            border-bottom: 1px solid transparent;
+
+            &:hover {
+                border-bottom: 1px solid $base-color;
             }
-        }
-    }
+
+            & + .nav-list-item {
+				margin-left: 10px;
+			}
+		}
+	}
 }
