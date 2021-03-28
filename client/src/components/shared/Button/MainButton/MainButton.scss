@@ -1,15 +1,15 @@
+@import './../../../../variables.scss';
+
 .main-button {
-	border: 2px solid rgb(107, 191, 216);
-	background-color: rgb(107, 191, 216);
+	border: none;
+	background-color: $secondary-color;
 	border-radius: 2px;
 	color: white;
 	padding: 5px 10px;
-	margin: 5px 0;
+	margin-bottom: 15px;
 	transition: all 0.2s ease-in;
 
 	&:hover {
 		cursor: pointer;
-		background-color: white;
-		color: rgb(107, 191, 216);
 	}
 }
