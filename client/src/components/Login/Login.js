@@ -10,6 +10,7 @@ const Login = ({
 }) => {
 
     const [authInfo, setAuthInfo] = useState({});
+    const [errorMessage, setErrorMessage] = useState('');
 
     const onChangeHandler = (e) => {
         const { name, value } = e.target;
@@ -19,8 +20,16 @@ const Login = ({
 
     const onSubmitHandler = () => {
 
+        setErrorMessage('');
+
         authService.login(authInfo)
-            .then(() => history.push('/'))
+            .then((res) => {
+                if (res.message === 'not register' || res.message === 'wrong password') {
+                    setErrorMessage('Wrong username or password');
+                    return;
+                }
+                history.push('/');
+            })
             .catch(e => {
                 console.log(e);
             });
@@ -31,6 +40,7 @@ const Login = ({
             <LoginView
                 onChangeHandler={onChangeHandler}
                 onSubmitHandler={onSubmitHandler}
+                errorMessage={errorMessage}
             />
         </MainLayout>
     )
