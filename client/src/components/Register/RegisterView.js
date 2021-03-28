@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import FormControl from '../shared/FormControl';
 import MainButton from '../shared/Button/MainButton';
@@ -47,6 +48,13 @@ const RegisterView = ({
                     text='Register'
                     onClickHandler={onSubmitHandler}
                 />
+
+                <Link
+                    className="already-register"
+                    to="/login"
+                >
+                    <span>Sign in</span>
+                </Link>
             </form>
         </div>
     </section>
