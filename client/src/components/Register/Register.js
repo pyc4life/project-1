@@ -16,22 +16,35 @@ const Register = ({
     const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
     const [usernameErrorMessage, setUsernameErrorMessage] = useState('');
 
-    const onSubmitHandler = (e) => {
+    const onSubmitHandler = () => {
 
-        setUsernameErrorMessage('');
+        let isReadyToSubmit = true;
 
-        if (passwordErrorMessage !== '') {
-            return;
+        if (username === '') {
+            setUsernameErrorMessage('Username is required');
+            isReadyToSubmit = false;
+        } else {
+            setUsernameErrorMessage('');
         }
 
-        authService.register({ username, password })
-            .then((res) => {
-                if (res.message === 'Username is already taken.') {
-                    setUsernameErrorMessage('Username is already taken');
-                    return;
-                }
-                history.push('/login');
-            }).catch(error => console.log(error));
+        if (password === '' || rePassword === '') {
+            console.log(password);
+            setPasswordErrorMessage('Password length must be more than 6 characters');
+            isReadyToSubmit = false;
+        } else {
+            setPasswordErrorMessage('');
+        }
+
+        if (isReadyToSubmit) {
+            authService.register({ username, password })
+                .then((res) => {
+                    if (res.message === 'Username is already taken.') {
+                        setUsernameErrorMessage('Username is already taken');
+                        return;
+                    }
+                    history.push('/login');
+                }).catch(error => console.log(error));
+        }
     };
 
     const onChangeHandlerUsername = (e) => {

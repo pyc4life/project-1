@@ -45,7 +45,7 @@ const RegisterView = ({
                 />
 
                 <MainButton
-                    text='Register'
+                    text='Create account'
                     onClickHandler={onSubmitHandler}
                 />
 
