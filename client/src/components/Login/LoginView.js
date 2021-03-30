@@ -21,7 +21,6 @@ const LoginView = ({
                 <FormControl
                     name='username'
                     type='text'
-                    placeholder='Eg. Jordjie39'
                     label='Username'
                     onChangeHandler={onChangeHandler}
                     errorMessage={usernameErrorMessage}

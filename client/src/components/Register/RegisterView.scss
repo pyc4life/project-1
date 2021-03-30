@@ -1,21 +1,15 @@
 @import './../../variables.scss';
 
 .register-section {
-	display: flex;
-	height: 60vh;
-
+	
 	.register-container {
-		display: flex;
-		border-radius: 5px;
-		max-width: 500px;
-		width: 100%;
+		max-width: 300px;
 		margin: auto;
 
 		.register-form {
 			margin: 15px auto;
-			width: 60%;
 
-			.already-register {
+			.already-register-btn {
 				margin-left: 10px;
 				color: $secondary-color;
 				padding: 5px;

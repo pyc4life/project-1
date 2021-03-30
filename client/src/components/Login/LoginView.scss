@@ -1,19 +1,13 @@
 @import './../../variables.scss';
 
 .login-section {
-	display: flex;
-	height: 60vh;
 
 	.login-container {
-		display: flex;
-		border-radius: 5px;
-		max-width: 500px;
-		width: 100%;
+		max-width: 300px;
 		margin: auto;
 
 		.login-form {
 			margin: 15px auto;
-			width: 60%;
 
 			.not-register-yet {
 				margin-left: 10px;

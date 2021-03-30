@@ -50,7 +50,7 @@ const RegisterView = ({
                 />
 
                 <Link
-                    className="already-register"
+                    className="already-register-btn"
                     to="/login"
                 >
                     <span>Sign in</span>
