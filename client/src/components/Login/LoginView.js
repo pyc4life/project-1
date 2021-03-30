@@ -11,6 +11,7 @@ const LoginView = ({
     onChangeHandler,
     onSubmitHandler,
     errorMessage,
+    usernameErrorMessage,
 }) => (
     <section className="login-section" >
         <div className="login-container">
@@ -23,7 +24,7 @@ const LoginView = ({
                     placeholder='Eg. Jordjie39'
                     label='Username'
                     onChangeHandler={onChangeHandler}
-                    errorMessage={errorMessage}
+                    errorMessage={usernameErrorMessage}
                 />
 
                 <FormControl

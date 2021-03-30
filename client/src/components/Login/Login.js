@@ -11,6 +11,7 @@ const Login = ({
 
     const [authInfo, setAuthInfo] = useState({});
     const [errorMessage, setErrorMessage] = useState('');
+    const [usernameErrorMessage, setUsernameErrorMessage] = useState('');
 
     const onChangeHandler = (e) => {
         const { name, value } = e.target;
@@ -20,14 +21,32 @@ const Login = ({
 
     const onSubmitHandler = () => {
 
-        setErrorMessage('');
+        let isOkayToSubmit = true;
 
+        if (!authInfo.username) {
+            setUsernameErrorMessage('Username is required');
+            isOkayToSubmit = false;
+        } else {
+            setUsernameErrorMessage('');
+        }
+
+        if (!authInfo.password) {
+            setErrorMessage('Password is required');
+            isOkayToSubmit = false;
+        } else {
+            setErrorMessage('');
+        }
+
+        if (!isOkayToSubmit) { return; }
         authService.login(authInfo)
             .then((res) => {
                 if (res.message === 'not register' || res.message === 'wrong password') {
                     setErrorMessage('Wrong username or password');
                     return;
+                } else {
+                    setErrorMessage('');
                 }
+
                 history.push('/');
             })
             .catch(e => {
@@ -41,9 +60,10 @@ const Login = ({
                 onChangeHandler={onChangeHandler}
                 onSubmitHandler={onSubmitHandler}
                 errorMessage={errorMessage}
+                usernameErrorMessage={usernameErrorMessage}
             />
         </MainLayout>
-    )
-}
+    );
+};
 
 export default Login;
