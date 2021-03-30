@@ -1,21 +1,22 @@
 @import './../../variables.scss';
 
 .home-wrapper {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    background-color: $base-color;
-    border-radius: 5px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+	background-color: $base-color;
+	border-radius: 5px;
 
-    .heading {
+	.heading {
 		text-align: center;
 		color: $gray-color;
+    text-transform: uppercase;
 	}
 
 	.get-started-btn {
 		margin: 10px auto;
-        flex-basis: content;
+		flex-basis: content;
 	}
 }

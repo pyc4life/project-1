@@ -10,12 +10,10 @@ const Home = () => {
     return (
         <MainLayout>
             <div className="home-wrapper">
-                <h3 className="heading">MAKE A CV TO IMPRESS</h3>
+                <h3 className="heading">build a resume to impress</h3>
                 <MainButton
-
                     className="get-started"
-                    text='GET
-                STARTED'
+                    text='BUILD MY RESUME'
                 />
             </div>
         </MainLayout>
