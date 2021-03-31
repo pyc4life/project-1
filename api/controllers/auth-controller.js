@@ -1,5 +1,4 @@
 import express from 'express';
-import { message } from 'statuses';
 import services from '../services';
 
 import config from '../config';
@@ -35,7 +34,7 @@ router.post('/login', (req, res, next) => {
     services.user.login(req.body)
         .then(token => {
             res
-                .cookie(config.cookie, token, { maxAge: 9000, httpOnly: true })
+                .cookie(config.cookie, token, { httpOnly: true, maxAge: (7 * 24 * 60 * 60000), })
                 .json({
                     ok: true
                 });
