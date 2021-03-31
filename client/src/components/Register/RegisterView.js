@@ -45,9 +45,10 @@ const RegisterView = ({
                 />
 
                 <MainButton
-                    text='Create account'
                     onClickHandler={onSubmitHandler}
-                />
+                >
+                    Create account
+                </MainButton>
 
                 <Link
                     className="already-register-btn"

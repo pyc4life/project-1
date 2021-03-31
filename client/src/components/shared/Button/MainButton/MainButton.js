@@ -1,19 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './MainButton.scss';
 
 const MainButton = ({
-    text,
+    children,
     className,
     onClickHandler,
-}) => (
-    <button
-        className={['main-button', className].filter(Boolean).join(' ')}
-        type="button"
-        onClick={onClickHandler}
-    >
-        {text}
-    </button>
-);
+    link,
+}) => {
+
+    const classes = ['main-button', className].filter(Boolean).join(' ');
+
+    return (
+        link ?
+            <Link
+                className={classes}
+                to={link}
+            >
+                {children}
+            </Link> :
+            <button
+                className={classes}
+                type="button"
+                onClick={onClickHandler}
+            >
+                {children}
+            </button>
+    );
+}
 
 export default MainButton;

@@ -35,9 +35,10 @@ const LoginView = ({
                 />
 
                 <MainButton
-                    text='Login'
                     onClickHandler={onSubmitHandler}
-                />
+                >
+                    Login
+                </MainButton>
 
                 <Link
                     className="not-register-yet"
@@ -45,6 +46,7 @@ const LoginView = ({
                 >
                     <span>Sign up</span>
                 </Link>
+                
             </form>
         </div>
     </section>
