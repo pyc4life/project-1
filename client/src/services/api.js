@@ -5,4 +5,7 @@ export default {
         login: `${baseUrl}/auth/login`,
         register: `${baseUrl}/auth/register`,
     },
+    user: {
+        buildResume: `${baseUrl}/resumes`,
+    }
 };
