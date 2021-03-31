@@ -1,5 +1,7 @@
-import user from './user-controller.js';
+import user from './auth-controller';
+import resume from './resume-controller';
 
 export default {
     user,
+    resume,
 };
