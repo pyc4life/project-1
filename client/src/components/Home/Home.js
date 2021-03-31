@@ -3,8 +3,6 @@ import React from 'react';
 import MainLayout from '../Layouts/MainLayout';
 import MainButton from '../shared/Button/MainButton';
 
-import authService from '../../services/authService';
-
 import './Home.scss'
 
 const Home = () => {
