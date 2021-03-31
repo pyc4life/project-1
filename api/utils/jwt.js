@@ -15,7 +15,7 @@ const verifyToken = (token) => {
             }
             resolve(payload);
         });
-    })
+    });
 };
 
 export default {
